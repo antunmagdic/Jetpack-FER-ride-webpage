@@ -269,6 +269,16 @@ footer a:hover {
   text-decoration: none;
 }
 
+audio {
+  display: none;
+}
+
+.cupcoin {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
 
 .largeImage {
   position: fixed;

@@ -51,3 +51,118 @@ for (let i = 0; i < thumbnails.length; i++) {
   }
 }
 
+(function konamiCodeListener() {
+  // up-up-down-down-left-right-left-right-b-a-enter
+  let UP = "ArrowUp";
+  let DOWN = "ArrowDown";
+  let LEFT = "ArrowLeft";
+  let RIGHT = "ArrowRight";
+  let B = "b";
+  let A = "a";
+  let ENTER = "Enter";
+  let state = 0;
+  let acceptableInState = [UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT, B, A, ENTER];
+  window.onkeydown = e => {
+    if (e.key == acceptableInState[state]) {
+      state++;
+    } else {
+      state = 0;
+      if (e.key == UP) state++;
+    }
+    if (state === acceptableInState.length) {
+      window.onKonamiCode && window.onKonamiCode();
+      state = 0;
+    }
+  }
+})();
+
+window.onKonamiCode = dropCupcoins;
+
+function randint(min, max) {
+  return Math.floor(Math.random() * (max-min) + min);
+}
+
+let COIN_SIZE = 70;
+let NUMBER_OF_CUPCOINS = 150;
+let cupcoinFactoryId = 0;
+function dropCupcoins() {
+  let startingMinY = -20*COIN_SIZE;
+  let startingMaxY = -COIN_SIZE;
+  let startingMinX = 0;
+  let startingMaxX = window.innerWidth;
+  let minVelY = 900; // px/s
+  let maxVelY = 1000; // px/s
+
+  let cupcoins = [];
+  for (let i = 0; i < NUMBER_OF_CUPCOINS; i++) {
+    let coin = createCupcoin();
+    coin.props = {
+      y: randint(startingMinY, startingMaxY),
+      vel: randint(minVelY, maxVelY),
+      aVel: 2*(2*Math.PI * Math.random() - Math.PI),
+      phi: 2*Math.PI * Math.random(),
+      id: cupcoinFactoryId++
+    };
+    coin.style.top = coin.props.y + "px";
+    coin.style.left = randint(startingMinX, startingMaxX) + "px";
+    cupcoins.push(coin);
+  }
+  cupcoins.forEach(coin => body.appendChild(coin));
+
+  let start, last;
+  function redraw(timestamp) {
+    if (!start) {
+      start = last = timestamp;
+    }
+
+    let dt = timestamp - last;
+    let t = timestamp - start;
+    let toRemove = {};
+    cupcoins.forEach(coin => {
+      let dy = coin.props.vel * dt / 1000; 
+      coin.props.y = coin.props.y + dy;
+      coin.style.top = coin.props.y + "px";
+      coin.style.transform = "scaleX(" + Math.cos(coin.props.aVel * t/1000 + coin.props.phi) + ")";
+      if (coin.props.y > window.innerHeight) {
+        toRemove[coin.props.id] = true;
+      }
+    });
+    cupcoins = cupcoins.filter(coin => {
+      if (toRemove[coin.props.id]) {
+        body.removeChild(coin);
+        return false;
+      }
+      return true;
+    });
+    if (cupcoins.length !== 0) {
+      requestAnimationFrame(redraw);
+      last = timestamp;
+    }
+  }
+  requestAnimationFrame(redraw);
+  let audio1 = document.createElement("audio");
+  let audio2 = document.createElement("audio");
+  let audio3 = document.createElement("audio");
+  let audio4 = document.createElement("audio");
+  audio1.src = "audio/coins1.mp3";
+  audio2.src = audio3.src = audio4.src = "audio/coins2.mp3";
+  audio1.play();
+  setTimeout(() => {
+    audio2.play();
+  }, 500);
+  setTimeout(() => {
+    audio3.play();
+  }, 1000);
+  setTimeout(() => {
+    audio4.play();
+  }, 1300);
+}
+
+let CUPCOIN_SRC = "textures/cupcoin.png";
+function createCupcoin() {
+  let cupcoin = document.createElement("img");
+  cupcoin.classList.add("cupcoin");
+  cupcoin.src = CUPCOIN_SRC;
+  return cupcoin;
+}
+
