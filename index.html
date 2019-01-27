@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Jetpack FER ride</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	<link href="https://fonts.googleapis.com/css?family=Muli:400,600,700,800" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+	<link rel="manifest" href="favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+	<header>
+		<h2 id="headerTitle"></h2>
+		<div class="logo">
+			<a href="https://www.fer.unizg.hr/">
+				<img src="images/FER_logo_gobos.svg" alt="FER">
+			</a>
+			<a href="http://www.unizg.hr/">
+				<img src="images/UniZg_logo.svg" alt="UniZg">
+			</a>
+		</div>
+	</header>
+	<div class="main">
+
+		<section id="titleArea">
+			<div id="title">
+				<h1>Jetpack FER ride</h1>
+				<h2>Projekt iz programske potpore</h2>
+			</div>
+			<p>Jetpack FER ride je projekt izrađen u sklopu predmeta <em>Projekt iz programske potpore</em> u 5. semestru preddiplomskog studija računarske znanosti na Fakultetu elektrotehnike i računarstva u Zagrebu pod mentorstvom <a href="https://www.fer.unizg.hr/marko.cupic">doc. dr. sc. Marka Čupića</a></p>
+		</section>
+
+		<section class="video">
+			<video controls src="videos/jetpack_fer_ride.mp4" poster="videos/jetpack_fer_ride_thumbnail.png"></video>
+		</section>
+		
+		<hr/>
+
+		<section class="description">
+			<h3>Opis projekta</h3>
+			<p>Cilj projekta bio je razviti jednostavnu 2D video igru te automatskog igrača koji je može igrati jednako dobro ili bolje od čovjeka.</p>
+			<p>Projekt smo izradili u 3 faze:
+				<ol>
+					<li>Razvoj video igre</li>
+					<li>Razvoj modela umjetne inteligencije</li>
+					<li>Izrada korisničkog sučelja</li>
+				</ol>
+			</p>
+			<div class="textWithImage">
+				<div class="text">
+					<h4>1. Razvoj video igre</h4>
+					<p>Inspiracija za našu video igru je poznata igra za mobilne uređaje <a href="https://halfbrick.com/our-games/jetpack-joyride/">Jetpack Joyride</a>. Cilj igrača je izbjegavati prepreke i skupljati novčiće na koje nailazi. Igra završava kad se igrač zabije u neku od prepreka.</p>
+					<p>Igra se sastoji od dva dijela: simulatora svijeta i sustava za grafički prikaz stanja svijeta. Ta dva dijela su potpuno odvojena pa je moguće simulirati tijek igre i bez prikazivanja sadržaja na zaslonu.</p>
+				</div>
+				<div class="imageContainer">
+					<img src="textures/player.png" alt="">
+				</div>
+			</div>
+			<h4>2. Razvoj modela umjetne inteligencije</h4>
+			<p>Za igru je bilo potrebno razviti automatskog inteligentnog igrača. Za to smo koristili tri različita modela umjetne intelignecije:
+				<ul>
+					<li><a href="https://en.wikipedia.org/wiki/Feedforward_neural_network">Unaprijednu neuronsku mrežu</a></li>
+					<li><a href="https://en.wikipedia.org/wiki/Recurrent_neural_network#Elman_networks_and_Jordan_networks">Elmanovu neuronsku mrežu</a></li>
+					<li><a href="https://en.wikipedia.org/wiki/Genetic_programming">Genetsko programiranje</a></li>
+				</ul>
+			</p>
+			<p>Za učenje svih modela korišten je <a href="https://en.wikipedia.org/wiki/Genetic_algorithm">genetski algoritam</a>.</p>
+			<h4>3. Izrada korisničkog sučelja</h4>
+			<p>Na kraju smo izradili korisničko sučelje koje omogućuje lakše korištenje svih funkcionalnosti sustava. Kroz korisničko sučelje omogućeno je učenje modela umjetne inteligencije uz izbor različitih parametara u skladu s izabranim modelom. Korisničko sučelje isto tako omogućuje korisniku praćenje učenje kroz grafički prikaz.</p>
+
+			<p>Cijeli projekt je implementiran koristeći programski jezik Java verzije 8, a za izradu grafičkog sučelja korištena je tehnologija JavaFX.</p>
+		</section>
+
+		<hr/>
+
+		<section class="gallery">
+			<h3>Galerija</h3>
+			<div>
+				<div class="image">
+					<img class="thumbnail" src="screenshots/MainMenu.png" alt="Glavni izbornik">
+					<h5>Glavni izbornik</h5>
+				</div>
+				<div class="image">
+					<img class="thumbnail" src="screenshots/InGame1.png" alt="Igra">
+					<h5>Igra</h5>
+				</div>
+				<div class="image">
+					<img class="thumbnail" src="screenshots/InGame2.png" alt="Igra">
+					<h5>Igra</h5>
+				</div>
+				<div class="image">
+					<img class="thumbnail" src="screenshots/TrainMenu.png" alt="Izbor parametara za učenje">
+					<h5>Izbor parametara za učenje</h5>
+				</div>
+				<div class="image">
+					<img class="thumbnail" src="screenshots/TrainView.png" alt="Prikaz učenja">
+					<h5>Prikaz učenja</h5>
+				</div>
+				<div class="image">
+					<img class="thumbnail" src="screenshots/LoadMenu.png" alt="Učitavanje automatskog igrača">
+					<h5>Učitavanje automatskog igrača</h5>
+				</div>
+			</div>
+		</section>
+
+		<hr/>
+
+		<section class="team">
+			<div>
+				<h3>Članovi tima</h3>
+				<ul>
+					<li>Ivan Mikulić (voditelj)</li>
+					<li>Matija Bertović</li>
+					<li>Adi Čaušević</li>
+					<li>Martin Čekada</li>
+					<li>Mate Gašparini</li>
+					<li>Antun Magdić</li>
+				</ul>
+			</div>
+			<div>
+				<h3>Mentor</h3>
+				<p>Doc. dr. sc. Marko Čupić</p>
+			</div>
+		</section>
+
+		<hr/>
+
+		<section class="downloads">
+			<h3>Preuzimanja</h3>
+			<div class="downloadOptions">
+				<a href="documents/jetpack_fer_ride_prezentacija.pptx"><img src="icons/presentation.svg" alt="">Prezentacija</a>
+				<a href="documents/jetpack_fer_ride.zip"><img src="icons/jar-file-format.svg" alt="">JAR</a>
+				<a href="documents/jetpack_fer_ride_dokumentacija.pdf"><img src="icons/file.svg" alt="">Dokumentacija</a>
+			</div>
+		</section>
+
+	</div>
+
+	<footer>
+		<img src="textures/jeren.png" alt="">
+		<div class="text">
+			<div>
+				<p>&copy; 
+					<a href="https://www.fer.unizg.hr/">Fakultet elektrotehnike i računarstva</a>, 
+					<a href="http://www.unizg.hr/">Sveučilište u Zagrebu</a>, 2018./2019.</p>
+			</div>
+			<div class="credits">
+				<p>Icons made by 
+					<a href="https://www.freepik.com/" title="Freepik">Freepik</a> from 
+					<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by 
+					<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<script src="main.js"></script>
+</body>
+</html>
