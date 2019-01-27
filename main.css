@@ -129,7 +129,7 @@ section h3 {
 .textWithImage img {
   height: 200px;
   padding: 20px;
-  transform: scaleX(-1) translateX(60px);
+  transform: translateX(-90px);
 }
 
 p {
