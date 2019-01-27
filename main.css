@@ -31,7 +31,7 @@ div.logo {
   display: inline-block;
 }
 
-header img:nth-child(1) {
+header a:nth-child(1) {
   margin-right: 15px;  
 }
 
