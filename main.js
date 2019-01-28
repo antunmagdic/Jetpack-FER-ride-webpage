@@ -85,6 +85,10 @@ function randint(min, max) {
 let COIN_SIZE = 70;
 let NUMBER_OF_CUPCOINS = 150;
 let cupcoinFactoryId = 0;
+let audio1 = document.createElement("audio");
+let audio2 = document.createElement("audio");
+let audio3 = document.createElement("audio");
+let audio4 = document.createElement("audio");
 function dropCupcoins() {
   let startingMinY = -20*COIN_SIZE;
   let startingMaxY = -COIN_SIZE;
@@ -140,10 +144,6 @@ function dropCupcoins() {
     }
   }
   requestAnimationFrame(redraw);
-  let audio1 = document.createElement("audio");
-  let audio2 = document.createElement("audio");
-  let audio3 = document.createElement("audio");
-  let audio4 = document.createElement("audio");
   audio1.src = "audio/coins1.mp3";
   audio2.src = audio3.src = audio4.src = "audio/coins2.mp3";
   audio1.play();
