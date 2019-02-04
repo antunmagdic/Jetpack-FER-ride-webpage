@@ -28,9 +28,11 @@ function displayLargeImage(target) {
   let img = document.createElement("img");
   img.src = target.src;
   div.appendChild(img);
+  let captionDiv = document.createElement("div");
   let caption = document.createElement("h3");
   caption.innerHTML = target.alt;
-  div.appendChild(caption);
+  captionDiv.appendChild(caption);
+  div.appendChild(captionDiv);
 
   let close = document.createElement("img");
   close.src = "icons/close_white.svg";

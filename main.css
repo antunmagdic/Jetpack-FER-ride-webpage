@@ -190,10 +190,24 @@ div.image img:hover {
 }
 
 .team div {
-  vertical-align: top;
   display: inline-block;
-  width: 49%;
   margin-bottom: 20px;
+}
+
+.team .image {
+  vertical-align: top;
+  width: 70%;
+  margin-top: 50px;
+}
+
+.team .image img {
+  opacity: 0.95;
+  width: 90%;
+  margin-left: 50px;
+}
+
+.team .people div {
+  display: block;
 }
 
 .team p {
@@ -297,13 +311,18 @@ audio {
   border-radius: 5px;
 }
 
+.largeImage div {
+  text-align: center;
+  width: 100%;
+}
+
 .largeImage h3 {
   background-color: rgb(131, 207, 101);
   text-align: center;
   border-radius: 5px;
   padding: 5px 10px;
-  width: max-content;
   margin: auto;
+  display: inline-block;
 }
 
 .close {
